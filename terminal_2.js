@@ -1,17 +1,23 @@
+// Зайти с локали на сервак:
+$ ssh nameserv@23.88.52.139 //вводим пароль/Enter
+
+// Создать пользователя под которым нужно работать:
+$ sudo adduser test_31
+ 
 //  1. Сделать папку dir_1:
-$ mkdir dir_1 ;
+$ mkdir dir_1 
 
 //  2. Зайти в папку dir_1: 
-$ cd dir_1 ;
+$ cd dir_1 
 
 //  3. Создать папку inner_dir_1:
-$ mkdir inner_dir_1 ;
+$ mkdir inner_dir_1 
 
 //  4. Посмотреть где ты находишься:
-$ pvd ;
+$ pvd 
 
 //  5. Находясь в папке dir_1 создать пустой текстовый файл tf_1.txt:
-$ > tf_1.txt ;
+$ > tf_1.txt 
 
 //  6. Находясь в папке dir_1 через команду cat создать текстовый файл tf_2.txt со следующими строками: 
 // - the first 1
@@ -57,7 +63,7 @@ Ctrl+c ;
 $ cat >> tf_3.txt
 the sec 2(Enter)
 // Сохраняем и выходим: 
-Ctrl+c;
+Ctrl+c ;
 
 //  11. Через cat добавить в текстовый файл tf_2.txt строку “the seConD 2”:
 $ cat >> ../tf_2.txt
@@ -116,18 +122,18 @@ $ cat > tF_5.txt
 Ctrl+c ;
 
 // 16. Вывести список всех файлов в папке.:
-$  ls -la ;
+$  ls -la 
 
 // 17. Выйти из папки inner_dir_1: 
-$ cd ../ ;
+$ cd ../ 
 
 // 18. Вывести содержимое файла tf_3.txt в терминал:
-$ cat inner_dir_1/tf_3.txt (команда cat и путь к файлу);
+$ cat inner_dir_1/tf_3.txt (команда cat и путь к файлу)
 
 // 19. Найти путь к файлу tf_4.txt:
 $ find -name tf_4.txt
 // ответ терминала:
- ./inner_dir_1/tf_4.txt ;
+ ./inner_dir_1/tf_4.txt 
 
 //  20. Очистить файл tf_4.txt от содержимого без удаления самого файла: 
 $ echo -n > inner_dir_1/tf_4.txt (echo -n > путь/к_файлу)
@@ -138,7 +144,7 @@ $ find -name "tf*"
 ./inner_dir_1/tf_3.txt
 ./inner_dir_1/tf_4.txt
 ./tf_1.txt
-./tf_2.txt ;
+./tf_2.txt 
 
 //  22. Найти путь к файлам у которых есть  “tf” в названии и буквы в любом регистре.: 
 $ find -iname "tf*"
@@ -146,14 +152,14 @@ $ find -iname "tf*"
 ./inner_dir_1/tf_4.txt
 ./inner_dir_1/tF_5.txt
 ./tf_1.txt
-./tf_2.txt ;
+./tf_2.txt 
 
 //  23. Найти строки в файлах где есть комбинация букв “sec” в текущей папке: 
 $ grep sec *
 ответ терминала: 
 grep: inner_dir_1: Is a directory
 tf_2.txt:- the second 2
-tf_2.txt:the sec 3 ;
+tf_2.txt:the sec 3 
 
 //  24. Найти строки в файлах где есть комбинация букв “sec” в любом регистре в текущей папке:
 $ grep -i sec *
@@ -161,32 +167,32 @@ $ grep -i sec *
 grep: inner_dir_1: Is a directory
 tf_2.txt:- the second 2
 tf_2.txt:the sec 3
-tf_2.txt:the seConD 2 ;
+tf_2.txt:the seConD 2 
 
 //  25. Найти строки в файлах где есть только комбинация букв “sec” в текущей папке:
 $ grep -w sec *
 // ответ терминала:
 grep: inner_dir_1: Is a directory
-tf_2.txt:the sec 3 ;
+tf_2.txt:the sec 3 
 
 //  26. Найти строки в файлах где есть только комбинация букв “sec” в любом регистре в текущей папке:
 $ grep -w -i sec *
 // ответ терминала:
 grep: inner_dir_1: Is a directory
-tf_2.txt:the sec 3 ;
+tf_2.txt:the sec 3 
 
 //  27. Найти строки в файлах где есть комбинация букв “second” в текущей папке:
 $ grep second *
 // ответ терминала:
 grep: inner_dir_1: Is a directory
-tf_2.txt:- the second 2 ;
+tf_2.txt:- the second 2 
 
 //  28. Найти строки в файлах где есть комбинация букв “second” в любом регистре в текущей папке:
 $ grep -i second *
 // ответ терминала:
 grep: inner_dir_1: Is a directory
 tf_2.txt:- the second 2
-tf_2.txt:the seConD 2 ;
+tf_2.txt:the seConD 2 
 
 //  29. Найти строки в файлах где есть комбинация букв “second” во всех папках ниже уровнем:
 $ grep -r second *
